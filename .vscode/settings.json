@@ -1,7 +1,4 @@
 {
     "editor.formatOnSave": true,
-    "cSpell.words": [
-        "dtos",
-        "nestjs"
-    ]
+    "cSpell.words": ["dtos", "nestjs", "onlyauth"]
 }
