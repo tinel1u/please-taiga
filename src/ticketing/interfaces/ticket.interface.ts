@@ -5,6 +5,6 @@ export interface Ticket extends Document {
     readonly title: string;
     readonly reference: string;
     readonly content: string;
-    readonly creator: string;
+    creator: string;
     readonly status: string;
 }

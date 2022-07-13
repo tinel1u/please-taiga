@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { sign } from "jsonwebtoken";
 import { UserService } from "../user/user.service";
-import { Payload } from "./payload.interface";
+import { Payload } from "../interfaces/payload.interface";
 
 @Injectable()
 export class AuthService {
@@ -9,7 +9,9 @@ export class AuthService {
     constructor(private userService: UserService) {}
 
     async signPayload(payload: Payload) {
-        return sign(payload, process.env.SECRET_KEY, { expiresIn: "7d" });
+        return sign(payload, process.env.SECRET_KEY, {
+            expiresIn: process.env.TOKEN_EXPIRATION
+        });
     }
 
     async validateUser(payload: Payload) {

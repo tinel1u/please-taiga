@@ -1,6 +1,6 @@
-export enum Role {
+export enum RoleEnum {
     // eslint-disable-next-line no-unused-vars
-    User = "user",
+    USER = "user",
     // eslint-disable-next-line no-unused-vars
-    Admin = "admin"
+    ADMIN = "admin"
 }

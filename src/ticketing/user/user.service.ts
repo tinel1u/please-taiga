@@ -5,7 +5,7 @@ import { LoginDTO } from "../dtos/login.dto";
 import { RegisterDTO } from "../dtos/register.dto";
 import { User } from "../interfaces/user.interface";
 import * as bcrypt from "bcrypt";
-import { Payload } from "../auth/payload.interface";
+import { Payload } from "../interfaces/payload.interface";
 
 @Injectable()
 export class UserService {
