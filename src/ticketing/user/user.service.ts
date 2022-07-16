@@ -23,6 +23,8 @@ export class UserService {
             );
         }
 
+        const salt = await bcrypt.genSalt(10);
+        registerDTO.password = await bcrypt.hash(registerDTO.password, salt);
         const createdUser = new this.userModel(registerDTO);
         await createdUser.save();
         return this.sanitizeUser(createdUser);
@@ -42,6 +44,7 @@ export class UserService {
                 HttpStatus.BAD_REQUEST
             );
         }
+
         if (await bcrypt.compare(password, user.password)) {
             return this.sanitizeUser(user);
         } else {

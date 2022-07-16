@@ -5,10 +5,8 @@ import {
     HttpStatus,
     Param,
     Post,
-    Res,
-    UseGuards
+    Res
 } from "@nestjs/common";
-import { AuthGuard } from "@nestjs/passport";
 import {
     ApiBadRequestResponse,
     ApiBearerAuth,
@@ -24,12 +22,10 @@ import { UserService } from "../user/user.service";
 import { AuthService } from "./auth.service";
 import { Roles } from "./roles/role.decorator";
 import { RoleEnum } from "../enums/role.enum";
-import { RolesGuard } from "./roles/roles.guard";
 
 @ApiTags("Authentication")
 @ApiBearerAuth()
 @Controller("auth")
-@UseGuards(AuthGuard("jwt"), RolesGuard)
 export class AuthController {
     constructor(
         // eslint-disable-next-line no-unused-vars
@@ -103,7 +99,7 @@ export class AuthController {
         const token = await this.authService.signPayload(payload);
         return user && token
             ? res.status(HttpStatus.OK).json({
-                  data: token
+                  token: token
               })
             : res.status(HttpStatus.NOT_FOUND).json();
     }

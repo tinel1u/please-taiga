@@ -8,7 +8,7 @@ import { DashboardModule } from "./ticketing/dashboard/dashboard.module";
 import { AuthModule } from "./ticketing/auth/auth.module";
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule);
+    const app = await NestFactory.create(AppModule, { cors: true });
     app.enableCors();
     app.setGlobalPrefix("api/v1");
 

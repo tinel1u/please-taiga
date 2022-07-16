@@ -32,12 +32,6 @@ export class DashboardService {
         dashboardMetrics.needs_info = tickets.filter(
             (ticket) => ticket.status === TicketStatusesEnum.NEEDS_INFO
         ).length;
-        dashboardMetrics.rejected = tickets.filter(
-            (ticket) => ticket.status === TicketStatusesEnum.REJECTED
-        ).length;
-        dashboardMetrics.postponed = tickets.filter(
-            (ticket) => ticket.status === TicketStatusesEnum.POSTPONED
-        ).length;
 
         return dashboardMetrics;
     }
